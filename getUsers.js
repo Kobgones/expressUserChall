@@ -5,9 +5,9 @@ const getUsersById = (req, res) => {
 
   database
     .query("select * from users where PersonId = ?", [id])
-    .then(([user]) => {
-      if (user) {
-        res.json(user);
+    .then(([users]) => {
+      if (users[0] != null) {
+        res.json(users[0]);
       } else {
         res.status(404).send("User Not Found");
       }

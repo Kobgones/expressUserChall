@@ -4,6 +4,8 @@ const express = require("express");
 
 const app = express();
 
+app.use(express.json())
+
 const port = process.env.APP_PORT ?? 5000;
 const welcome = (req, res) => {
   res.send("Welcome to my Users Lists");
@@ -16,6 +18,9 @@ const getUsers = require("./getUsers");
 
 app.get("/users", userHandler.getUsers);
 app.get("/users/:id", getUsers.getUsersById);
+
+app.post("/users", userHandler.createUser);
+
 
 app.listen(port, (err) => {
   if (err) {

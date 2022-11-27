@@ -16,7 +16,7 @@ app.get("/", welcome);
 const userHandler = require("./userHandler");
 const getUsers = require("./getUsers");
 
-app.get("/users", userHandler.getUsers);
+app.get("/api/users", userHandler.getUsers);
 app.get("/users/:id", getUsers.getUsersById);
 
 app.post("/users", userHandler.createUser);

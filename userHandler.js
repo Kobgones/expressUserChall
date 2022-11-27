@@ -1,10 +1,10 @@
 const database = require("./database");
 
 const getUsers = (req, res) => {
-  res.json(users);
+  res.json(Users);
 };
 
-const createUser = (res, res) => {
+const createUser = (req, res) => {
   const { PersonID, Lastname, age} = req.body;
 
   database

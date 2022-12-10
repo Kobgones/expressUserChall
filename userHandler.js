@@ -1,9 +1,5 @@
 const database = require("./database");
 
-const getUsers = (req, res) => {
-  res.json(Users);
-};
-
 const createUser = (req, res) => {
   const { PersonID, Lastname, age} = req.body;
 
@@ -22,6 +18,5 @@ const createUser = (req, res) => {
 };
 
 module.exports = {
-  getUsers,
   createUser,
 };

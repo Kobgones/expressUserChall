@@ -21,10 +21,11 @@ const putUser = require("./putUser")
 
 app.get("/api/users", getUsers.getUsers); // Get all users
 app.get("/api/user/:id", getUsers.getUsersById); // Get all users by id
-app.post("/api/users", userHandler.createUser); // Create an user
 app.put("/api/user/:id", putUser.updateUser); // Update an user
 app.delete("/api/user/:id" ,userHandler.deleteUser) // Delete an user
 
+const { hashPassword } = require("./auth.js");
+app.post("/api/users", hashPassword, userHandler.createUser);
 
 app.listen(port, (err) => {
   if (err) {
